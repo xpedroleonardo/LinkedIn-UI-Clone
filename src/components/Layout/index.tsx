@@ -10,15 +10,14 @@ import LeftColumn from '../LeftColumn';
 import MiddleColumn from '../MiddleColumn';
 import RightColumn from '../RightColumn';
 
-
 const Layout: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      // setIsLoading(false);
-    }, 1000)
+      setIsLoading(false);
+    }, 3000)
   }, [])
 
   return (
@@ -26,9 +25,7 @@ const Layout: React.FC = () => {
       <MobileHeader />
       <DesktopHeader />
 
-      <span>
-        <AdBanner />
-      </span>
+      <span>{!isLoading && <AdBanner />}</span>
 
       <main>
         <LeftColumn isLoading={isLoading} />
